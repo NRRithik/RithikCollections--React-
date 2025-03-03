@@ -1,0 +1,90 @@
+body {
+    background: linear-gradient(0deg, rgb(11, 53, 70) 0%, rgb(4, 178, 231) 35%, rgb(243, 2, 243) 100%);
+    background-attachment: fixed;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  #form {
+    width: 400px;
+    height: 400px;
+    background-color: black;
+    border-radius: 20px;
+    padding: 30px;
+    color: white;
+    transition: transform 0.2s;
+  }
+  
+  #form:hover {
+    box-shadow: 20px 10px 30px black;
+    transform: scale(0.96);
+  }
+  
+  h1 {
+    text-align: center;
+    color: rgb(243, 2, 243);
+  }
+  
+  #form button {
+    background-color: rgb(243, 2, 243);
+    color: white;
+    border: 1px solid rgb(243, 2, 243);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 20px 0;
+    cursor: pointer;
+    font-size: 20px;
+    width: 100%;
+  }
+  
+  #form input:hover,
+  button:hover {
+    transform: scale(1.05);
+  }
+  
+  #form input,
+  button {
+    transition: transform 0.2s;
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+  }
+  
+  .input-group input {
+    border-radius: 10px;
+    font-size: 20px;
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid rgb(0, 2, 126);
+  }
+  
+  .input-group input:focus {
+    outline: 0;
+  }
+  
+  .error {
+    color: red;
+    font-size: 16px;
+    margin-top: 5px;
+  }
+  
+  #toggle-form {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  #toggle-form a {
+    color: rgb(243, 2, 243);
+    text-decoration: none;
+  }
+  
+  #toggle-form a:hover {
+    text-decoration: underline;
+  }
