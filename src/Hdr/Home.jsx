@@ -96,6 +96,8 @@ export default class Home extends Component {
             ))}
           </div>
         </div>
+
+        <h1>byee</h1>
       </div>
     );
   }
