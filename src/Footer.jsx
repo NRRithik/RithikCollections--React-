@@ -25,7 +25,7 @@ export default class Footer extends Component {
           </table>
         </center>
         <p>
-          ONLINE SHOPPING MADE EASY AT MYNTRA If you would like to experience the best of online
+          ONLINE SHOPPING MADE EASY AT RITHIK COLLECTIONS If you would like to experience the best of online
           shopping for men, women and kids in India, you are at the right place. Myntra is the
           ultimate destination for fashion and lifestyle, being host to a wide array of merchandise
           including clothing, footwear, accessories, jewellery, personal care products and more. It
@@ -35,9 +35,9 @@ export default class Footer extends Component {
           delivered right to your doorstep.
         </p>
         <p>
-          <b>HISTORY OF MYNTRA :</b>&nbsp; Becoming India’s no. 1 fashion destination is not an easy
+          <b>HISTORY OF RITHIK COLLECTIONS :</b>&nbsp; Becoming India’s no. 1 fashion destination is not an easy
           feat. Sincere efforts, digital enhancements and a team of dedicated personnel with an
-          equally loyal customer base have made Myntra the online platform that it is today. The
+          equally loyal customer base have made RITHIK COLLECTIONS the online platform that it is today. The
           original B2B venture for personalized gifts was conceived in 2007 but transitioned into a
           full-fledged ecommerce giant within a span of just a few years. By 2012, Myntra had
           introduced 350 Indian and international brands to its platform, and this has only grown in
