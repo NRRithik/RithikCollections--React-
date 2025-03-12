@@ -97,6 +97,19 @@ export default class Home extends Component {
           </div>
         </div>
 
+
+        <div style={{display: 'flex',alignItems: 'center',justifyContent: 'flex-start',height: '74vh',backgroundColor: 'black',}}>
+              <video src="https://videos.pexels.com/video-files/7680438/7680438-uhd_1440_2732_25fps.mp4" height="700px" autoPlay loop />
+        </div>
+        <div style={{display: 'flex',alignItems: 'center',justifyContent: 'flex-end',height: '74vh',backgroundColor: 'orange'}}>
+          <video src="https://videos.pexels.com/video-files/7668407/7668407-uhd_1440_2732_25fps.mp4" height="700px" autoPlay loop />
+        </div>
+
+
+
+
+       
+
         
       </div>
     );

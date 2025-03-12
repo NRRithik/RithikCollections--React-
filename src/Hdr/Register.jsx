@@ -1,125 +1,102 @@
-import React, { Component } from 'react';
-import './Register.css'; // Import the CSS file for styling
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './Register.css';
 
-class Register extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoginForm: false, // Tracks whether the form is in login mode
-      username: '', // Stores the username input
-      password: '', // Stores the password input
-      usernameError: '', // Stores username validation error
-      passwordError: '', // Stores password validation error
-    };
-  }
+const Register = () => {
+  const [isLoginForm, setIsLoginForm] = useState(false);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-  // Toggle between Register and Login forms
-  toggleForm = () => {
-    this.setState(
-      (prevState) => ({ isLoginForm: !prevState.isLoginForm }),
-      this.clearInputs
-    );
+  const toggleForm = () => {
+    setIsLoginForm(!isLoginForm);
+    setUsername('');
+    setPassword('');
   };
 
-  // Handle form submission
-  handleForm = (event) => {
+  const handleForm = (event) => {
     event.preventDefault();
-    const { username, password, isLoginForm } = this.state;
-
     if (isLoginForm) {
-      this.login(username, password);
+      login(username, password);
     } else {
-      this.register(username, password);
+      register(username, password);
     }
   };
 
-  // Register a new user
-  register = (username, password) => {
-    const existingUser = localStorage.getItem('user');
-    if (existingUser) {
-      alert('A user is already registered. Please try using another username.');
-      this.toggleForm(); // Switch to login form
+  const register = (username, password) => {
+    if (localStorage.getItem('user')) {
+      alert('A user is already registered. Please use another username.');
+      toggleForm();
       return;
     }
-
-    // Save new user
-    const user = { username, password };
-    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('user', JSON.stringify({ username, password }));
     alert('Registration successful! Please login.');
-    this.toggleForm(); // Switch to login form
+    toggleForm();
   };
 
-  // Login an existing user
-  login = (username, password) => {
+  const login = (username, password) => {
     const user = JSON.parse(localStorage.getItem('user'));
     if (user && user.username === username && user.password === password) {
-      // Redirect to another page (replace with your desired route)
-      window.location.href = '/home'; // Example: Redirect to a home page
+      alert('Login successful!');
+      navigate('/'); // Redirect to home page
     } else {
       alert('Invalid username or password.');
     }
   };
 
-  // Clear input fields
-  clearInputs = () => {
-    this.setState({ username: '', password: '' });
-  };
+  return (
+    <div className="container">
+      <form id="form" onSubmit={handleForm}>
+        <h1 id="form-title">{isLoginForm ? 'Login' : 'Register'}</h1>
 
-  // Handle input changes
-  handleInputChange = (event) => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
-  };
+        <div className="input-group">
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+        </div>
 
-  render() {
-    const { isLoginForm, username, password } = this.state;
+        <div className="input-group">
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
 
-    return (
-      <div className="container">
-        <form id="form" onSubmit={this.handleForm}>
-          <h1 id="form-title">{isLoginForm ? 'Login' : 'Register'}</h1>
+        <div className="input-group">
+          <button type="submit" id="submit-btn">
+            {isLoginForm ? 'Login' : 'Register'}
+          </button>
+        </div>
 
-          <div className="input-group">
-            <label htmlFor="username">Username</label>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              value={username}
-              onChange={this.handleInputChange}
-              required
-            />
-            <div className="error" id="username-error"></div>
-          </div>
-
-          <div className="input-group">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={password}
-              onChange={this.handleInputChange}
-              required
-            />
-            <div className="error" id="password-error"></div>
-          </div>
-
-          <div className="input-group">
-            <button type="submit" id="submit-btn">
-              {isLoginForm ? 'Login' : 'Register'}
-            </button>
-          </div>
-
-            <p id="toggle-form">{isLoginForm ? "Don't have an account? " : 'Already have an account? '} 
-                <button type="button" onClick={this.toggleForm} style={{ background: 'none', border: 'none', color: 'rgb(243, 2, 243)', cursor: 'pointer', textDecoration: 'underline' }}> 
-                    {isLoginForm ? 'Register here' : 'Login here'}
-                </button>
-            </p>
-        </form>
-      </div>
-    );
-  }
-}
+        <p id="toggle-form">
+          {isLoginForm ? "Don't have an account? " : 'Already have an account? '}
+          <button
+            type="button"
+            onClick={toggleForm}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: 'rgb(243, 2, 243)',
+              cursor: 'pointer',
+              textDecoration: 'underline',
+            }}>
+            {isLoginForm ? 'Register here' : 'Login here'}
+          </button>
+        </p>
+      </form>
+    </div>
+  );
+};
 
 export default Register;

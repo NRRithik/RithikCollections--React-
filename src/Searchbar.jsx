@@ -6,11 +6,11 @@ export default class Searchbar extends Component {
       <div>
         <form className="search-form">
           <input className="form-control search-input"   list="browsers"  placeholder="Search for products"/>
-                <datalist id="browsers"><option value="Edge" />
-                  <option value="abc" />
-                  <option value="Chrome" />
-                  <option value="Opera" />
-                  <option value="Safari" />
+                <datalist id="browsers">
+                  <option value="Shirts" />
+                  <option value="Tshirts" />
+                  <option value="Pants" />
+                  <option value="Tops" />
                 </datalist>
         </form>
       </div>

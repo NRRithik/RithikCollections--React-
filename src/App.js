@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Link, Routes, Route } from 'react-router-dom';
+import { Link, Routes, Route, useNavigate } from 'react-router-dom';
 import Beauty from './Hdr/Beauty';
 import Kids from './Hdr/Kids';
 import Men from './Hdr/Men';
@@ -23,9 +23,11 @@ import GirlsSet from './Hdr/GirlsSet';
 import Face from './Hdr/Face';
 import Lips from './Hdr/Lips';
 import Nails from './Hdr/Nails';
-
+import Register from './Hdr/Register'; // Import the Register component
 
 function App() {
+  const navigate = useNavigate(); // Hook for navigation
+
   return (
     <CartProvider>
       <div>
@@ -48,6 +50,13 @@ function App() {
             </span>
 
             <Searchbar />
+
+            <button 
+              onClick={() => navigate('/register')} 
+              style={{ marginLeft: '10px', padding: '5px 10px', cursor: 'pointer', border: 'none', backgroundColor: 'black', color: 'white', borderRadius: '25px' , }}>
+              Register/Login
+            </button>
+
             <Link to="/cart" style={{ marginLeft: '10px', textDecoration: 'none', color: 'inherit' }}>
               <i className="fa fa-shopping-cart" aria-hidden="true"></i> Cart
             </Link>
@@ -81,7 +90,9 @@ function App() {
               <Route path="Lips" element={<Lips/>} />
               <Route path="Nails" element={<Nails />}/>
             </Route>
+
             <Route path="/cart" element={<Cart />} />
+            <Route path="/register" element={<Register />} /> {/* Route for Register component */}
           </Routes>
         </div>
 
