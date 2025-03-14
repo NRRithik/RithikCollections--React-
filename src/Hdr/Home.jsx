@@ -98,12 +98,14 @@ export default class Home extends Component {
         </div>
 
 
-        <div style={{display: 'flex',alignItems: 'center',justifyContent: 'flex-start',height: '74vh',backgroundColor: 'black',}}>
-              <video src="https://videos.pexels.com/video-files/7680438/7680438-uhd_1440_2732_25fps.mp4" height="700px" autoPlay loop />
-        </div>
-        <div style={{display: 'flex',alignItems: 'center',justifyContent: 'flex-end',height: '74vh',backgroundColor: 'orange'}}>
-          <video src="https://videos.pexels.com/video-files/7668407/7668407-uhd_1440_2732_25fps.mp4" height="700px" autoPlay loop />
-        </div>
+        <div style={{display:'flex',flexDirection:'column',height:'74vh'}}>
+          <div style={{flex:1,backgroundColor:'black',display:'flex',alignItems:'flex-start',overflow:'hidden'}}>
+            <video src="https://videos.pexels.com/video-files/7680438/7680438-uhd_1440_2732_25fps.mp4" style={{height:'120%',width:'auto',objectFit:'contain'}} autoPlay loop />
+          </div>
+          <div style={{flex:1,backgroundColor:'orange',display:'flex',alignItems:'flex-end',justifyContent:'flex-end',overflow:'hidden'}}>
+            <video src="https://videos.pexels.com/video-files/7668407/7668407-uhd_1440_2732_25fps.mp4" style={{height:'120%',width:'auto',objectFit:'contain'}} autoPlay loop />
+          </div>
+        </div>  
 
 
 
